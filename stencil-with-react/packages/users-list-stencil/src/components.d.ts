@@ -9,10 +9,6 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
-  interface AddComponent {
-    'first': number;
-    'second': number;
-  }
   interface MyComponent {
     /**
     * The first name
@@ -32,28 +28,17 @@ export namespace Components {
 declare global {
 
 
-  interface HTMLAddComponentElement extends Components.AddComponent, HTMLStencilElement {}
-  var HTMLAddComponentElement: {
-    prototype: HTMLAddComponentElement;
-    new (): HTMLAddComponentElement;
-  };
-
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
   var HTMLMyComponentElement: {
     prototype: HTMLMyComponentElement;
     new (): HTMLMyComponentElement;
   };
   interface HTMLElementTagNameMap {
-    'add-component': HTMLAddComponentElement;
     'my-component': HTMLMyComponentElement;
   }
 }
 
 declare namespace LocalJSX {
-  interface AddComponent {
-    'first'?: number;
-    'second'?: number;
-  }
   interface MyComponent {
     /**
     * The first name
@@ -70,7 +55,6 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
-    'add-component': AddComponent;
     'my-component': MyComponent;
   }
 }
@@ -81,7 +65,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
-      'add-component': LocalJSX.AddComponent & JSXBase.HTMLAttributes<HTMLAddComponentElement>;
       'my-component': LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
     }
   }
