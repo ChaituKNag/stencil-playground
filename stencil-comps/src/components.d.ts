@@ -10,6 +10,7 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
+  interface KncGreetComponent {}
   interface MyComponent {
     /**
     * The first name
@@ -29,17 +30,25 @@ export namespace Components {
 declare global {
 
 
+  interface HTMLKncGreetComponentElement extends Components.KncGreetComponent, HTMLStencilElement {}
+  var HTMLKncGreetComponentElement: {
+    prototype: HTMLKncGreetComponentElement;
+    new (): HTMLKncGreetComponentElement;
+  };
+
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
   var HTMLMyComponentElement: {
     prototype: HTMLMyComponentElement;
     new (): HTMLMyComponentElement;
   };
   interface HTMLElementTagNameMap {
+    'knc-greet-component': HTMLKncGreetComponentElement;
     'my-component': HTMLMyComponentElement;
   }
 }
 
 declare namespace LocalJSX {
+  interface KncGreetComponent {}
   interface MyComponent {
     /**
     * The first name
@@ -56,6 +65,7 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
+    'knc-greet-component': KncGreetComponent;
     'my-component': MyComponent;
   }
 }
@@ -66,6 +76,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
+      'knc-greet-component': LocalJSX.KncGreetComponent & JSXBase.HTMLAttributes<HTMLKncGreetComponentElement>;
       'my-component': LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
     }
   }
