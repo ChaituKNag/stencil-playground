@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "web-comp-todos",
   "version": "0.0.1",
   "description": "Stencil Component Starter",
@@ -24,5 +25,8 @@
   "devDependencies": {
     "@stencil/core": "^1.12.2"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ]
 }

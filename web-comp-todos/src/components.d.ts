@@ -5,57 +5,79 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Todo, } from "./components/single-todo/single-todo";
+import { Todo as Todo1, } from "./components/single-todo/single-todo";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface AddTodo {
+    }
+    interface SingleTodo {
+        "todo": Todo;
+    }
+    interface TodoApp {
+        "todos": Array<Todo>;
+    }
+    interface TodosList {
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLAddTodoElement extends Components.AddTodo, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLAddTodoElement: {
+        prototype: HTMLAddTodoElement;
+        new (): HTMLAddTodoElement;
+    };
+    interface HTMLSingleTodoElement extends Components.SingleTodo, HTMLStencilElement {
+    }
+    var HTMLSingleTodoElement: {
+        prototype: HTMLSingleTodoElement;
+        new (): HTMLSingleTodoElement;
+    };
+    interface HTMLTodoAppElement extends Components.TodoApp, HTMLStencilElement {
+    }
+    var HTMLTodoAppElement: {
+        prototype: HTMLTodoAppElement;
+        new (): HTMLTodoAppElement;
+    };
+    interface HTMLTodosListElement extends Components.TodosList, HTMLStencilElement {
+    }
+    var HTMLTodosListElement: {
+        prototype: HTMLTodosListElement;
+        new (): HTMLTodosListElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "add-todo": HTMLAddTodoElement;
+        "single-todo": HTMLSingleTodoElement;
+        "todo-app": HTMLTodoAppElement;
+        "todos-list": HTMLTodosListElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface AddTodo {
+        "onSubmitTodo"?: (event: CustomEvent<any>) => void;
+    }
+    interface SingleTodo {
+        "todo"?: Todo;
+    }
+    interface TodoApp {
+        "todos"?: Array<Todo>;
+    }
+    interface TodosList {
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "add-todo": AddTodo;
+        "single-todo": SingleTodo;
+        "todo-app": TodoApp;
+        "todos-list": TodosList;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "add-todo": LocalJSX.AddTodo & JSXBase.HTMLAttributes<HTMLAddTodoElement>;
+            "single-todo": LocalJSX.SingleTodo & JSXBase.HTMLAttributes<HTMLSingleTodoElement>;
+            "todo-app": LocalJSX.TodoApp & JSXBase.HTMLAttributes<HTMLTodoAppElement>;
+            "todos-list": LocalJSX.TodosList & JSXBase.HTMLAttributes<HTMLTodosListElement>;
         }
     }
 }
