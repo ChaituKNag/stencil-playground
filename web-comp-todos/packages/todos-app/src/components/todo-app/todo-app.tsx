@@ -29,7 +29,9 @@ export class TodoApp implements ComponentInterface {
   render() {
     return (
       <Host>
-        <slot name="todo-app-title"></slot>
+        <div class="todo-app-title">
+          <slot name="todo-app-title"></slot>
+        </div>
         <add-todo>
           <h4 slot="add-todo-title">Add a new Todo</h4>
           <span slot="add-todo-btn-label">Go Get It</span>

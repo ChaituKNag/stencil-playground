@@ -1,3 +1,10 @@
 :host {
   display: block;
 }
+
+.todo-app-title {
+  background-color: green;
+  color: white;
+  font-family: "Chelsea Market", cursive;
+  padding: 20px;
+}

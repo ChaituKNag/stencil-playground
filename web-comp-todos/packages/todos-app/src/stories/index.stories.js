@@ -13,7 +13,9 @@ export const Button = () => {
 };
 
 export const TodosApp = () => `
+  <div class="mui-container">
   <todo-app>
     <h1 slot="todo-app-title">This is the app title...</h1>
   </todo-app>
+  </div>
 `;
